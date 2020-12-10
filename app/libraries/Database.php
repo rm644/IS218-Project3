@@ -17,6 +17,7 @@
             );
             try{
                 $this->dbHandler = new PDO($conn, $this->dbUser, $this->dbPass, $options);
+                $this->dbHandler->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             }
             catch (PDOException $e){
                 $this->error = $e->getMessage();
@@ -50,6 +51,7 @@
         //Execute the prepared statement
         public function execute() {
             return $this->statement->execute();
+            $this->statement->debugDumpParams();
         }
 
         public function resultSet() {

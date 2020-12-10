@@ -1,16 +1,3 @@
-<?php
-include('session.php');
-include("userinfo.php");
-?>
-
-<!-- Rishabh Mehta
-Project 2 - 11/09/20
-Part 3: New Question Form (HTML)
--Question Name  
--Question Body
--Question Skills (Array)
--->
-
 <!DOCTYPE html>
 
 <html>
@@ -18,18 +5,19 @@ Part 3: New Question Form (HTML)
 <head>
     <title>New QUESTION Form</title>
     <!-- Link to CSS file-->
-    <link type="text/css" rel="stylesheet" href="questionform.css" />
+    <link type="text/css" rel="stylesheet" href="../public/css/questions.css" />
     <link rel="icon"
         href="https://png.pngtree.com/png-clipart/20190516/original/pngtree-arrow-icon-in-flat-style-arrow-symbol-web-design-logo-png-image_3548330.jpg">
 
 </head>
 
 <body>
-    <br><br><a href = 'questions.php'>All Questions</a>
+    <br><br><a href = '../question/list'>All Questions</a>
+    <a href = "../user/logout" >Logout</a>
     <div class="form">
         <h1> Add Question </h1>
 
-        <form action="savequestion.php" method="post" onsubmit="return checkForm()">
+        <form action="../question/save" method="post" onsubmit="return checkForm()">
 
             <!--Question Name and Body Textboxes (Required)-->
             <label for="questionName"><b>Question Name: </b></label>

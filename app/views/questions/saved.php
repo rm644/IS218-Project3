@@ -49,6 +49,7 @@ include("db.php");
         $stmt->execute();
 
         echo "<a href='questions.php'>Show Questions</a>";
+        echo "<a href = '../user/logout' >Logout</a>";
   }else
       echo $strResult;
    

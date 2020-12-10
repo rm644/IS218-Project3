@@ -1,7 +1,3 @@
-<?php
-include('session.php');
-?>
-
 <!DOCTYPE html>
 
 <html>
@@ -14,22 +10,15 @@ include('session.php');
 
 <body>
 
-<?php
-include('userinfo.php');
-?>
+
 <hr/>
-<a href = "addquestion.php" >Add Questions: </a>
+<a href = "../question/create" >Add Questions: </a>
+<a href = "../user/logout" >Logout</a>
 <br/> <br/>
 <?php
 
-$sql = "SELECT id, name, body, skills FROM questions";
-
-// Execute the query
-$stmt = $conn->query($sql);
-$rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-if (count($rows) > 0) {
-    echo "We found " . count($rows) . " questions<br/>";
+if (count((array)$data['rows']) > 0) {
+    echo "We found " . count((array)$data['rows']) . " questions<br/>";
 ?>
 
     <table style="width: 500px; text-align: left; border: solid 1px #ccc">
@@ -38,18 +27,24 @@ if (count($rows) > 0) {
             <th>Name </th>
             <th>Body </th>
             <th>Skills </th>
+            <th></th>
         </thead>
         <tbody>
 
             <?php
+
   // output data of each row
-  foreach($rows as $row) {
+  foreach($data['rows'] as $i =>$row) {
 ?>
             <tr>
-                <td><?php echo $row["id"];?></td>
-                <td><?php echo $row["name"];?></td>
-                <td><?php echo $row["body"];?></td>
-                <td><?php echo $row["skills"];?></td>
+                <td><?php echo $row->id;?></td>
+                <td><?php echo $row->name;?></td>
+                <td><?php echo $row->body;?></td>
+                <td><?php echo $row->skills;?></td>
+                <td>
+                 <a href = "../question/edit?id=<?php echo $row->id;?>">Edit</a> &nbsp;
+                 <a href = "../question/delete?id=<?php echo $row->id;?>">Delete</a>
+                 </td>
             </tr>
 
             <?php  

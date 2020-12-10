@@ -19,13 +19,15 @@
         }
 
         public function save($question){
-            $sql = "insert into questions (user_id, name, body, skills) values ( :user_id, :name, :body, :skills)";
+            $sql = "insert into questions(user_id, name, body, skills) values(" . $question['user_id'] . ", '" . $question['name'] . "', '" . $question['body'] . "', '" . $question['skills'] . "')";
+            //$sql = "insert into questions (user_id, name, body, skills) values ( :user_id, :name, :body, :skills)";
+            print_r($question);
 
             $this->db->query($sql);
-            $this->db->bind(":user_id", $question['user_id'], PDO::PARAM_INT); 
-            $this->db->bind(":name", $question['questionName'], PDO::PARAM_STR);
-            $this->db->bind(":body", $question['questionBody'], PDO::PARAM_STR);
-            $this->db->bind(":skills", $question['questionSkills'], PDO::PARAM_STR);
+            /*$this->db->bind(":user_id", $question['user_id'], PDO::PARAM_INT); 
+            $this->db->bind(":name", $question['name'], PDO::PARAM_STR);
+            $this->db->bind(":body", $question['body'], PDO::PARAM_STR);
+            $this->db->bind(":skills", $question['skills'], PDO::PARAM_STR);*/
 
             $this->db->execute();
         }
@@ -40,22 +42,23 @@
         }
 
         public function update($id, $question){
-            $sql = "update questions set name = :name, body = :body, skills = :skills where id = :id";
+            $sql = "update questions set name='" . $question['name'] . "', body='" . $question['body'] . "', skills='" . $question['skills'] . "' where id=$id";
+            //$sql = "update questions set name = 'name, body = :body, skills = :skills where id = :id";
+            echo $sql;
 
             $this->db->query($sql); 
-            $this->db->bind(":name", $question['questionName'], PDO::PARAM_STR);
-            $this->db->bind(":body", $question['questionBody'], PDO::PARAM_STR);
-            $this->db->bind(":skills", $question['questionSkills'], PDO::PARAM_STR);
-            $this->db->bind(":id", $id, PDO::PARAM_INT);
+            /*$this->db->bind(":name", $question['name'], PDO::PARAM_STR);
+            $this->db->bind(":body", $question['body'], PDO::PARAM_STR);
+            $this->db->bind(":skills", $question['skills'], PDO::PARAM_STR);
+            $this->db->bind(":id", $id, PDO::PARAM_INT);*/
 
             $this->db->execute();
         }
 
         public function delete($id){
-            $sql = "delete from questions where id = :id";
+            $sql = "delete from questions where id = $id";
 
             $this->db->query($sql);
-            $this->db->bind(":id", $id, PDO::PARAM_INT); 
 
             $this->db->execute();
         }
