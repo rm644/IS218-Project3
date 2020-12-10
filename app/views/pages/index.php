@@ -3,7 +3,7 @@
 
 <head>
 
-    <title>Home</title>
+    <title>Home Page</title>
     <!-- Link to CSS file-->
     <link type="text/css" rel="stylesheet" href="../public/css/login.css" />
     <meta charset="utf-8">

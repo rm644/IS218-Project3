@@ -5,8 +5,9 @@ class QuestionController extends Controller {
     }
 
     public function list(){
+        $user_id = $_SESSION['user_id'];
         
-        $rows = $this->questionModel->load();
+        $rows = $this->questionModel->loadForUser($user_id);
 
         $this->view('questions/list', $rows);
     }

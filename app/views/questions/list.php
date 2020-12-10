@@ -9,7 +9,7 @@ include('session.php');
 <head>
     <title>Questions</title>
     <!-- Link to CSS file-->
-    <link type="text/css" rel="stylesheet" href="loginform.css"/> 
+    <link type="text/css" rel="stylesheet" href="../public/css/login.css"/> 
 </head>
 
 <body>
