@@ -10,16 +10,18 @@ class UserController extends Controller {
     }
 
     public function login(){
+        $email = $_REQUEST['email'];
+        $password = $_REQUEST['password'];
 
         $user = $this->userModel->login($email, $password);
 
         if(isset($user)){
-
+            $_SESSION['user_id'] = $user['id'];
+            header('location:questions.php');
         }
         else{
             $this->view('pages/loginfailed');
-        }
-        
+        } 
     }
 }
 ?>

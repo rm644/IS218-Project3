@@ -19,7 +19,7 @@
         }
 
         public function login($email, $password){
-            $sql = "SELECT first_name, last_name, email, password FROM users WHERE email = '$email' AND password = 'password'";
+            $sql = "SELECT id, first_name, last_name, email, password FROM users WHERE email = '$email' AND password = 'password'";
             
             $this->$db->query($sql);
             $rows = $this->$db->resultSet();

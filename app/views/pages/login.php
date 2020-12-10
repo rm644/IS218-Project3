@@ -23,7 +23,7 @@ Part 1: Login Form (HTML)
     <div class="form">
         <h1> Welcome NJIT User!</h1>
 
-        <form action="loginform.php" method="post" onsubmit="return checkForm()">
+        <form action="../user/login" method="post" onsubmit="return checkForm()">
 
             <!-- Username and Password Textboxes (Required)-->
 

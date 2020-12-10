@@ -26,7 +26,7 @@ Part 2: Registration Form (HTML)
     <div class="form">
         <h1><br> STUDENT REGISTRATION <br> </h1>
 
-        <form action="registerform.php" method="post" onsubmit="return checkForm()">
+        <form action="../user/register" method="post" onsubmit="return checkForm()">
 
             <!--Username, Password Textboxes (Required)-->
             <br><label for="firstname"><b>First Name: </b></label>
